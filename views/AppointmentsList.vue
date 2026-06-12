@@ -59,12 +59,14 @@ export default {
   },
   methods: {
     fetchAppointments() {
-      
-fetch("https://n3se1yee13.execute-api.eu-north-1.amazonaws.com/appointments")
-  .then(res => res.json())
+      fetch("https://n3se1yee13.execute-api.eu-north-1.amazonaws.com/appointments")
+        .then(res => res.json())
         .then(data => {
-          const parsed = JSON.parse(data.body);
-          this.appointments = parsed;
+          // No data.body string parsing needed anymore
+          this.appointments = data;
+        })
+        .catch(err => {
+          console.error("Error loading appointments:", err);
         });
     },
     updateStatus(appointment, newStatus) {
