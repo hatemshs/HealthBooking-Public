@@ -46,12 +46,15 @@ export default {
       slots: []
     };
   },
-  mounted() {
-fetch("https://n3se1yee13.execute-api.eu-north-1.amazonaws.com/slots")
-  .then(res => res.json())
+ mounted() {
+    fetch("https://n3se1yee13.execute-api.eu-north-1.amazonaws.com/slots")
+      .then(res => res.json())
       .then(data => {
-        const parsed = JSON.parse(data.body);
-        this.slots = parsed.filter(s => !s.isBooked).map(s => s.slot);
+        // Since data is already a clean array, we map it directly without JSON.parse(data.body)
+        this.slots = data.filter(s => !s.isBooked).map(s => s.slot);
+      })
+      .catch(err => {
+        console.error("Error loading slots:", err);
       });
   },
   methods: {
