@@ -27,7 +27,7 @@
             </select>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-primary w-100">Book</button>
+            <button type="submit" class="btn btn-primary w-100">Book it now</button>
           </div>
         </form>
       </div>
