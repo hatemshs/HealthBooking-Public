@@ -47,8 +47,8 @@ export default {
     };
   },
   mounted() {
-    fetch("https://e2m2b7y8c9.execute-api.us-east-1.amazonaws.com/prod/slots")
-      .then(res => res.json())
+fetch("https://n3se1yee13.execute-api.eu-north-1.amazonaws.com/slots")
+  .then(res => res.json())
       .then(data => {
         const parsed = JSON.parse(data.body);
         this.slots = parsed.filter(s => !s.isBooked).map(s => s.slot);
@@ -62,8 +62,8 @@ export default {
         slot: this.selectedSlot
       };
 
-      fetch("https://631yjambq5.execute-api.us-east-1.amazonaws.com/prod", {
-        method: "POST",
+fetch("https://n3se1yee13.execute-api.eu-north-1.amazonaws.com/appointments", {
+  method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ body: JSON.stringify(payload) })
       })
