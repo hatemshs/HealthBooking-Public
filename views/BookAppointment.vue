@@ -13,7 +13,7 @@
         <h2 class="text-center mb-4 text-primary">Book an Appointment</h2>
         <form class="row g-3" @submit.prevent="submitAppointment">
           <div class="col-12">
-            <input v-model="name" type="text" class="form-control" placeholder="Your Name" required />
+            <input v-model="name" type="text" class="form-control" placeholder="Your Name Here" required />
           </div>
           <div class="col-12">
             <input v-model="symptoms" type="text" class="form-control" placeholder="Symptoms" required />
